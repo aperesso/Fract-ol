@@ -16,12 +16,22 @@
 # define HEIGHT 750
 # define MAX_ITE 30
 
-# define ESC 53
-# define KEY_UP 126
-# define KEY_DOWN 125
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define I 34
+// # define ESC 53
+// # define KEY_UP 126
+// # define KEY_DOWN 125
+// # define KEY_LEFT 123
+// # define KEY_RIGHT 124
+// # define I 34
+// # define SCROLL_UP 5
+// # define SCROLL_DOWN 4
+// # define CLICK 1
+
+# define ESC 65307
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
+# define I 105
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
 # define CLICK 1
@@ -66,7 +76,8 @@ void				clear_color(t_img *img, int color);
 int					make_color(int red, int green, int blue);
 int					key_hook(int keycode, t_env *e);
 int					mouse_hook(int button, int x, int y, t_env *e);
+int					mouse_move(int x, int y, t_env *e);
 t_env				*mandelbrot(t_env *e);
-
+t_env				*julia(t_env *e);
 
 #endif

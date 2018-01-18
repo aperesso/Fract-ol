@@ -26,7 +26,8 @@ int		main(int ac, char **av)
 		return (EXIT_FAILURE);
 	mlx_put_image_to_window(e->mlx->ptr, e->mlx->win, e->mlx->img->ptr, 0, 0);
 	mlx_hook(e->mlx->win, 2, 3, key_hook, e);
+	mlx_hook(e->mlx->win, 6, (1L << 6), mouse_move, e);
 	mlx_hook(e->mlx->win, 4, (1L << 2), mouse_hook, e);
-	mlx_loop(e->mlx->ptr);	
+	mlx_loop(e->mlx->ptr);
 	return (EXIT_SUCCESS);
 }

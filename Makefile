@@ -20,8 +20,8 @@ WAC=\033[33m
 cc = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
 
-FRAM =  -I minilibx -lmlx -framework OpenGL -framework AppKit -g
-# FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext
+#FRAM =  -I minilibx -lmlx -framework OpenGL -framework AppKit -g
+FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext
 OBJ_PATH = ./obj/
 LFT_PATH = ./libft/
 TOOL_PATH = ./math_toolbox/
@@ -34,7 +34,8 @@ SRC_NAME = 	main.c\
 			image.c\
 			hook.c\
 			init.c\
-			mandelbrot.c
+			mandelbrot.c\
+			julia.c
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

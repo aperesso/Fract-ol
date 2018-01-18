@@ -37,6 +37,8 @@ static t_env	*check_parameters(int ac, char **av)
 		return ((t_env *)error("usage: fractol -fractal_name"));
 	if (!(ft_strcmp(av[1], "mandelbrot")))
 		mode = 0;
+	if (!(ft_strcmp(av[1], "julia")))
+		mode = 1;
 	if (mode == -1)
 		return ((t_env *)error("unknown fractal"));
 	if (!(e = ft_memalloc(sizeof(t_env))))
@@ -57,8 +59,15 @@ t_env			*launch_program(int ac, char **av)
 	{
 		e->origine = set_vector_2d(-0.5, 0);
 		e->zoom = 1.5;
-		e->iteration = 30;
+		e->iteration = 100;
 		e = mandelbrot(e);
+	}
+	if (e->mode == 1)
+	{
+		e->origine = set_vector_2d(-0.5,0);
+		e->zoom = 3;
+		e->iteration = 40;
+		e = julia(e);
 	}
 	return (e);
 }
