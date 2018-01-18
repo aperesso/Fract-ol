@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.fr>             +#+  +:+       +#+        */
+/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 21:37:42 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/17 00:08:49 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/18 19:03:31 by aperesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 # define HEIGHT 750
 # define MAX_ITE 30
 
-# define ESC 65307
+# define ESC 53
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define I 34
+# define SCROLL_UP 5
+# define SCROLL_DOWN 4
+# define CLICK 1
 
 # include "../libft/libft.h"
 # include "../math_toolbox/includes/toolbox.h"
@@ -48,6 +56,7 @@ typedef struct		s_env
 	int				mode;
 	t_vec2			origine;
 	double			zoom;
+	int				iteration;
 }					t_env;
 t_env				*launch_program(int ac, char **av);
 t_img				*init_img(t_mlx *mlx);
@@ -55,8 +64,8 @@ void				*error(char *error_message);
 t_img				*fill_img_pixel(t_img *img, int color, int x, int y);
 void				clear_color(t_img *img, int color);
 int					make_color(int red, int green, int blue);
-int					key_hook(int keycode, t_mlx *mlx);
-
+int					key_hook(int keycode, t_env *e);
+int					mouse_hook(int button, int x, int y, t_env *e);
 t_env				*mandelbrot(t_env *e);
 
 

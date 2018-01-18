@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.fr>             +#+  +:+       +#+        */
+/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 23:10:14 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/17 00:23:42 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/18 19:05:20 by aperesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ t_env	*mandelbrot(t_env *e)
 			z.r = 0;
 			z.im = 0;
 			i = -1;
-			while (++i < MAX_ITE && (z.r * z.r + z.im * z.im) < 4)
+			while (++i < e->iteration && (z.r * z.r + z.im * z.im) < 4)
 			{
 				tmp = z.r;
 				z.r = z.r * z.r - z.im * z.im + c.r;
 				z.im = 2 * tmp * z.im + c.im;
 			}
-			fill_img_pixel(e->mlx->img, make_color(i * 25 / MAX_ITE,
-				0 , i * 100 / MAX_ITE), pos.x, pos.y);
-		}	
-	}	
+			fill_img_pixel(e->mlx->img, make_color(i * 25 / e->iteration,
+				0 , i * 100 / e->iteration), pos.x, pos.y);
+		}
+	}
 	return (e);
 }

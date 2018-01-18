@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.fr>             +#+  +:+       +#+        */
+/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 23:03:21 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/16 23:47:20 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/18 19:03:19 by aperesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_env	*check_parameters(int ac, char **av)
 	mode = -1;
 	if (ac != 2)
 		return ((t_env *)error("usage: fractol -fractal_name"));
-	if (!(ft_strcmp(av[1], "-mandelbrot")))
+	if (!(ft_strcmp(av[1], "mandelbrot")))
 		mode = 0;
 	if (mode == -1)
 		return ((t_env *)error("unknown fractal"));
@@ -57,6 +57,7 @@ t_env			*launch_program(int ac, char **av)
 	{
 		e->origine = set_vector_2d(-0.5, 0);
 		e->zoom = 1.5;
+		e->iteration = 30;
 		e = mandelbrot(e);
 	}
 	return (e);
