@@ -34,6 +34,7 @@ int		mouse_move(int x, int y, t_env *e)
 		e->origine.y = map(y, set_vector_2d(0, HEIGHT),
 			set_vector_2d(-e->zoom, e->zoom));
 	}
+	e = update(e);
 	return (1);
 }
 

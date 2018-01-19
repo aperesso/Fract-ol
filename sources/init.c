@@ -64,9 +64,9 @@ t_env			*launch_program(int ac, char **av)
 	}
 	if (e->mode == 1)
 	{
-		e->origine = set_vector_2d(-0.5,0);
-		e->zoom = 3;
-		e->iteration = 40;
+		e->origine = set_vector_2d(-0.70176,-0.3842);
+		e->zoom = 2;
+		e->iteration = 100;
 		e = julia(e);
 	}
 	return (e);

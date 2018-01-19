@@ -16,12 +16,9 @@ t_env	*julia(t_env *e)
 {
 	t_vec2		p;
 	t_complex	z;
-	t_complex	c;
 	int			i;
 	double		tmp;
 
-	c.r = (double) e->origine.x;
-	c.im = (double) e->origine.y;
 	p = set_vector_2d(-1, -1);
 	while (++p.y < HEIGHT)
 	{
@@ -36,11 +33,11 @@ t_env	*julia(t_env *e)
 			while (++i < e->iteration && (z.r * z.r + z.im * z.im) < 4)
 			{
 				tmp = z.r;
-				z.r = z.r * z.r - z.im * z.im + c.r;
-				z.im = 2 * tmp * z.im + c.im;
+				z.r = z.r * z.r - z.im * z.im + e->origine.x;
+				z.im = 2 * tmp * z.im + e->origine.y;
 			}
-			fill_img_pixel(e->mlx->img, make_color(i * 25 / e->iteration,
-				0 , i * 100 / e->iteration), p.x, p.y);
+			fill_img_pixel(e->mlx->img, make_color(i * 255 /e->iteration ,
+				i * 255 /e->iteration, i * 255 /e->iteration), p.x, p.y);
 		}
 	}
 	return (e);
