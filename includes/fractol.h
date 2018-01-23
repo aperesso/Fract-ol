@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexia <alexia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/16 21:37:42 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/18 19:03:31 by aperesso         ###   ########.fr       */
+/*   Created: 2018/01/21 18:32:19 by alexia            #+#    #+#             */
+/*   Updated: 2018/01/22 23:15:56 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define WIDTH 1000
-# define HEIGHT 750
-# define MAX_ITE 30
+# define NB_THREAD 16
+# define WIDTH 850
+# define HEIGHT 500
 
 // # define ESC 53
 // # define KEY_UP 126
@@ -40,6 +40,7 @@
 # include "../math_toolbox/includes/toolbox.h"
 # include <mlx.h>
 # include <math.h>
+# include <pthread.h>
 
 typedef struct		s_img
 {
@@ -55,11 +56,6 @@ typedef struct		s_mlx
 	void			*ptr;
 	struct s_img	*img;
 }					t_mlx;
-typedef struct		s_complex
-{
-	double			im;
-	double			r;
-}					t_complex;
 typedef struct		s_env
 {
 	struct s_mlx	*mlx;
@@ -67,17 +63,31 @@ typedef struct		s_env
 	t_vec2			origine;
 	double			zoom;
 	int				iteration;
+	int				n_square;
 }					t_env;
-t_env				*launch_program(int ac, char **av);
+typedef struct		s_thread
+{
+	pthread_t		t;
+	struct s_env	*env;
+	int				id;
+	t_vec2			tile[2];
+}					t_thread;
+typedef struct		s_complex
+{
+	double			r;
+	double			im;
+}					t_complex;
+float				min(float a, float b);
 t_img				*init_img(t_mlx *mlx);
-void				*error(char *error_message);
-t_img				*fill_img_pixel(t_img *img, int color, int x, int y);
-void				clear_color(t_img *img, int color);
 int					make_color(int red, int green, int blue);
-int					key_hook(int keycode, t_env *e);
+void				clear_color(t_img *img, int color);
+t_img				*fill_img_pixel(t_img *img, int color, int x, int y);
+void				*error(char *error_message);
+t_env				*launch_program(int ac, char **av);
+int					thread_fractal(t_env *e);
+void 				*mandelbrot(t_thread *t);
+void				*julia(t_thread *t);
 int					mouse_hook(int button, int x, int y, t_env *e);
 int					mouse_move(int x, int y, t_env *e);
-t_env				*mandelbrot(t_env *e);
-t_env				*julia(t_env *e);
 
 #endif

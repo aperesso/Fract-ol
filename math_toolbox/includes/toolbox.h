@@ -6,7 +6,7 @@
 /*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:54:00 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/13 15:56:34 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/22 21:30:46 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,10 @@ t_vec4				set_vector_4d(float x, float y, float z, float w);
 t_vec3				set_vector_3d(float x, float y, float z);
 t_vec2				set_vector_2d(float x, float y);
 float				map(float x, t_vec2 from, t_vec2 to);
+float				mix(float v1, float v2, float a);
+float 				clamp(float x, float lowerlimit, float upperlimit);
+float				smoothstep(float edge0, float edge1, float x);
+t_vec3				mix_vec3(t_vec3 v1, t_vec3 v2, t_vec3 v3);
+
+
 #endif

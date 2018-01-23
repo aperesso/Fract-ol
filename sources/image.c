@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.fr>             +#+  +:+       +#+        */
+/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 13:46:54 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/17 00:20:16 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/21 20:34:00 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			make_color(int red, int green, int blue)
 {
 	return ((red << 16) + (green << 8) + blue);
 }
+
 void		clear_color(t_img *img, int color)
 {
 	int i;

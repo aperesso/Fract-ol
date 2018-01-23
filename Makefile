@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperesso <aperesso@student.fr>             +#+  +:+       +#+         #
+#    By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 17:13:32 by aperesso          #+#    #+#              #
-#    Updated: 2018/01/16 23:14:07 by aperesso         ###   ########.fr        #
+#    Updated: 2018/01/22 03:38:53 by alexia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ cc = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
 
 #FRAM =  -I minilibx -lmlx -framework OpenGL -framework AppKit -g
-FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext
+FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -lpthread
 OBJ_PATH = ./obj/
 LFT_PATH = ./libft/
 TOOL_PATH = ./math_toolbox/
@@ -32,10 +32,11 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 INC_NAME = fractol.h
 SRC_NAME = 	main.c\
 			image.c\
-			hook.c\
 			init.c\
+			thread.c\
 			mandelbrot.c\
-			julia.c
+			julia.c\
+			hook.c\
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

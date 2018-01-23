@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+         #
+#    By: alexia <alexia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/13 19:12:18 by alexia            #+#    #+#              #
-#    Updated: 2018/01/13 17:50:37 by aperesso         ###   ########.fr        #
+#    Updated: 2018/01/22 17:48:26 by alexia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,12 +46,15 @@ SRC_NAME = 	create_matrix.c \
 			set_vector_3d.c\
 			map.c\
 			set_vector_2d.c\
+			mix.c\
+			clamp.c\
+			smoothstep.c\
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC = $(addprefix -I,$(INC_PATH))
 
-all: 
+all:
 		@make $(NAME)
 
 $(NAME): $(OBJ)
