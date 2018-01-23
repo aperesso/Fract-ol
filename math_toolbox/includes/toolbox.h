@@ -6,7 +6,7 @@
 /*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:54:00 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/22 21:30:46 by alexia           ###   ########.fr       */
+/*   Updated: 2018/01/23 17:47:36 by aperesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ float				mix(float v1, float v2, float a);
 float 				clamp(float x, float lowerlimit, float upperlimit);
 float				smoothstep(float edge0, float edge1, float x);
 t_vec3				mix_vec3(t_vec3 v1, t_vec3 v2, t_vec3 v3);
+float   			min(float a, float b);
 
 
 #endif

@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexia <alexia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/21 18:32:19 by alexia            #+#    #+#             */
-/*   Updated: 2018/01/22 23:15:56 by alexia           ###   ########.fr       */
+/*   Updated: 2018/01/23 17:48:25 by aperesso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # define NB_THREAD 16
-# define WIDTH 850
-# define HEIGHT 500
+# define WIDTH 1100
+# define HEIGHT 800
 
-// # define ESC 53
-// # define KEY_UP 126
-// # define KEY_DOWN 125
-// # define KEY_LEFT 123
-// # define KEY_RIGHT 124
-// # define I 34
-// # define SCROLL_UP 5
-// # define SCROLL_DOWN 4
-// # define CLICK 1
-
-# define ESC 65307
-# define KEY_UP 65362
-# define KEY_DOWN 65364
-# define KEY_LEFT 65361
-# define KEY_RIGHT 65363
-# define I 105
+# define ESC 53
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define I 34
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
 # define CLICK 1
+
+// # define ESC 65307
+// # define KEY_UP 65362
+// # define KEY_DOWN 65364
+// # define KEY_LEFT 65361
+// # define KEY_RIGHT 65363
+// # define I 105
+// # define SCROLL_UP 5
+// # define SCROLL_DOWN 4
+// # define CLICK 1
 
 # include "../libft/libft.h"
 # include "../math_toolbox/includes/toolbox.h"
@@ -77,7 +77,6 @@ typedef struct		s_complex
 	double			r;
 	double			im;
 }					t_complex;
-float				min(float a, float b);
 t_img				*init_img(t_mlx *mlx);
 int					make_color(int red, int green, int blue);
 void				clear_color(t_img *img, int color);

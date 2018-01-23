@@ -47,7 +47,7 @@ static t_env	*check_parameters(int ac, char **av)
 		return ((t_env *)error("error during minilibx initilisation"));
 	e->mode = mode;
 	e->n_square = sqrt(NB_THREAD);
-	if (e->n_square != 1 && e->n_square != 2 && e->n_square != 4)
+	if (e->n_square != 1 && e->n_square != 2 && e->n_square != 4 && e->n_square != 5)
 		return ((t_env *)error("incorrect number of threads"));
 	return (e);
 }
