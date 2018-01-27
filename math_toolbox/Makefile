@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+         #
+#    By: alexia <alexia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/13 19:12:18 by alexia            #+#    #+#              #
-#    Updated: 2018/01/23 17:47:50 by aperesso         ###   ########.fr        #
+#    Updated: 2018/01/27 03:23:39 by alexia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,8 @@ SRC_NAME = 	create_matrix.c \
 			clamp.c\
 			smoothstep.c\
 			min.c\
+			rotate_matrix_3.c\
+			vector_product.c\
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

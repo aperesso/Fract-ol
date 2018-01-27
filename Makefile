@@ -6,7 +6,7 @@
 #    By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 17:13:32 by aperesso          #+#    #+#              #
-#    Updated: 2018/01/23 14:55:38 by aperesso         ###   ########.fr        #
+#    Updated: 2018/01/27 03:30:59 by alexia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ WAC=\033[33m
 cc = gcc
 C_FLAGS = -Wall -Wextra -Werror -g
 
-FRAM =  -I minilibx -lmlx -framework OpenGL -framework AppKit -g
-#FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -lpthread
+#FRAM =  -I minilibx -lmlx -framework OpenGL -framework AppKit -g
+FRAM =	-I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext -lpthread
 OBJ_PATH = ./obj/
 LFT_PATH = ./libft/
 TOOL_PATH = ./math_toolbox/
@@ -37,6 +37,7 @@ SRC_NAME = 	main.c\
 			mandelbrot.c\
 			julia.c\
 			hook.c\
+			menger_sponge.c\
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))

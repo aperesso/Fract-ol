@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alexia <alexia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 03:35:00 by alexia            #+#    #+#             */
-/*   Updated: 2018/01/23 17:47:58 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/27 03:32:39 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	color_julia(t_vec4 dmin, t_env *e, t_vec2 p)
 {
-	t_vec3		col;
-	float			m;
+	t_vec3	col;
+	float	m;
 
 	col = set_vector_3d(dmin.w, dmin.w, dmin.w);
 	m = min(1.0, pow(dmin.x * 0.25, 0.4));
@@ -37,8 +37,8 @@ static void	color_julia(t_vec4 dmin, t_env *e, t_vec2 p)
 static t_vec4	trapped_julia(t_complex z, t_env *e)
 {
 	int				i;
-	double	tmp;
-	t_vec4	dmin;
+	double			tmp;
+	t_vec4			dmin;
 
 	i = 0;
 	dmin = set_vector_4d(1000, 1000, 1000, 1000);
@@ -56,7 +56,7 @@ static t_vec4	trapped_julia(t_complex z, t_env *e)
 	return (dmin);
 }
 
-void					*julia(t_thread *t)
+void			*julia(t_thread *t)
 {
 	t_vec2		p;
 	t_complex	z;

@@ -6,7 +6,7 @@
 /*   By: aperesso <aperesso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:54:00 by aperesso          #+#    #+#             */
-/*   Updated: 2018/01/23 17:47:36 by aperesso         ###   ########.fr       */
+/*   Updated: 2018/01/27 03:26:35 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+typedef struct		s_matrix_3
+{
+	float			data[3][3];
+}					t_matrix_3;
 typedef struct		s_matrix
 {
 	float			data[4][4];
@@ -49,19 +53,23 @@ typedef struct		s_mesh
 	struct s_vec4	*transformed_vertices;
 	int				*color;
 	int				*is_visible;
-	int				row;
-	int				col;
 }					t_mesh;
+t_matrix_3			create_matrix_3d(void);
 t_matrix			create_matrix(void);
-void				display_matrix(t_matrix	matrix);
 t_matrix			set_identity(void);
+t_matrix_3			set_identity_3(void);
 t_matrix			mult_matrix(t_matrix a, t_matrix b);
+t_matrix_3			mult_matrix_3(t_matrix_3 a, t_matrix_3 b);
 t_matrix			translate(float x, float y, float z);
 t_matrix			rotatex(float t);
 t_matrix			rotatey(float t);
 t_matrix			rotatez(float t);
+t_matrix_3			rotatex_3(float t);
+t_matrix_3			rotatey_3(float t);
+t_matrix_3			rotatez_3(float t);
 t_matrix			scale(float sx, float sy, float sz);
 t_vec4				mult_matrix_vector(t_matrix a, t_vec4	v);
+t_vec3				mult_matrix_vector_3(t_matrix_3 a, t_vec3 v);
 t_matrix			create_transformation_matrix(t_vec3 translation,
 						t_vec3 rotate, t_vec3 scale);
 t_matrix			create_view_matrix(t_vec3 position, float rx, float ry,
@@ -80,6 +88,10 @@ float 				clamp(float x, float lowerlimit, float upperlimit);
 float				smoothstep(float edge0, float edge1, float x);
 t_vec3				mix_vec3(t_vec3 v1, t_vec3 v2, t_vec3 v3);
 float   			min(float a, float b);
-
+t_vec3				cross_product(t_vec3 a, t_vec3 b);
+float				dot_product(t_vec3 a, t_vec3 b);
+t_vec2				normalize_2d(t_vec2 a);
+t_vec3				normalize_3d(t_vec3 a);
+t_vec4				normalize_4d(t_vec4 a);
 
 #endif

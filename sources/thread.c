@@ -6,7 +6,7 @@
 /*   By: alexia <alexia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 03:12:42 by alexia            #+#    #+#             */
-/*   Updated: 2018/01/22 03:39:54 by alexia           ###   ########.fr       */
+/*   Updated: 2018/01/27 03:28:49 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	*fractal_runner(void *arg)
 		mandelbrot(t);
 	if (t->env->mode == 1)
 		julia(t);
+	if (t->env->mode == 2)
+		menger_sponge(t);
 	pthread_exit(NULL);
 }
 

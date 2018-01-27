@@ -6,7 +6,7 @@
 /*   By: alexia <alexia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 02:58:11 by alexia            #+#    #+#             */
-/*   Updated: 2018/01/23 01:40:14 by alexia           ###   ########.fr       */
+/*   Updated: 2018/01/27 00:46:57 by alexia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static t_env	*check_parameters(int ac, char **av)
 		mode = 0;
 	if (!(ft_strcmp(av[1], "julia")))
 		mode = 1;
+	if (!(ft_strcmp(av[1], "menger_sponge")))
+		mode = 2;
 	if (mode == -1)
 		return ((t_env *)error("unknown fractal"));
 	if (!(e = ft_memalloc(sizeof(t_env))))
@@ -49,6 +51,26 @@ static t_env	*check_parameters(int ac, char **av)
 	e->n_square = sqrt(NB_THREAD);
 	if (e->n_square != 1 && e->n_square != 2 && e->n_square != 4 && e->n_square != 5)
 		return ((t_env *)error("incorrect number of threads"));
+	return (e);
+}
+
+static t_env	*set_menger(t_env *e)
+{
+	e->menger.renderer.max_steps = 204;
+	e->menger.renderer.max_distance = 10;
+	e->menger.renderer.epsilon = 0.00001;
+	e->menger.renderer.back_step = 0.001;
+	e->menger.renderer.delta = 0.001;
+	e->menger.scale = 3;
+	e->menger.offset = set_vector_3d(1, 1, 1);
+	e->menger.m = set_identity_3();
+	e->menger.light.sky_color = set_vector_3d(0.55f, 0.66f, 1);
+	e->menger.light.sun_vector = set_vector_3d(0.535, 0.267, 0.802);
+	e->menger.light.sun_color = set_vector_3d(1, 1, 1);
+	e->menger.light.sun_size = 0.001;
+	e->menger.light.sun_sharpness = 1.1;
+	e->menger.theta = 57.2958f;
+	e->menger.phi = 0;
 	return (e);
 }
 
@@ -73,6 +95,11 @@ t_env			*launch_program(int ac, char **av)
 		e = set_env(e, set_vector_2d(-0.5, 0), 1.5, 200);
 	if (e->mode == 1)
 		e = set_env(e, set_vector_2d(-0.70176,-0.342), 1.5, 100);
+	if (e->mode == 2)
+	{
+		e = set_env(e, set_vector_2d(0, 0), 2, 7);
+		e = set_menger(e);
+	}
 	// if (e->mode == 1)
 	// {
 	// 	e->origine = set_vector_2d(-0.70176,-0.3842);
