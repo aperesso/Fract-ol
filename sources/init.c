@@ -58,12 +58,12 @@ static t_env	*set_menger(t_env *e)
 {
 	e->menger.renderer.max_steps = 204;
 	e->menger.renderer.max_distance = 10;
-	e->menger.renderer.epsilon = 0.00001;
+	e->menger.renderer.epsilon = 0.1;
 	e->menger.renderer.back_step = 0.001;
 	e->menger.renderer.delta = 0.001;
 	e->menger.scale = 3;
 	e->menger.offset = set_vector_3d(1, 1, 1);
-	e->menger.m = set_identity_3();
+	e->menger.mat = set_identity_3();
 	e->menger.light.sky_color = set_vector_3d(0.55f, 0.66f, 1);
 	e->menger.light.sun_vector = set_vector_3d(0.535, 0.267, 0.802);
 	e->menger.light.sun_color = set_vector_3d(1, 1, 1);

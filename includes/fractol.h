@@ -16,25 +16,25 @@
 # define WIDTH 700
 # define HEIGHT 500
 
-// # define ESC 53
-// # define KEY_UP 126
-// # define KEY_DOWN 125
-// # define KEY_LEFT 123
-// # define KEY_RIGHT 124
-// # define I 34
-// # define SCROLL_UP 5
-// # define SCROLL_DOWN 4
-// # define CLICK 1
-
-# define ESC 65307
-# define KEY_UP 65362
-# define KEY_DOWN 65364
-# define KEY_LEFT 65361
-# define KEY_RIGHT 65363
-# define I 105
+# define ESC 53
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define I 34
 # define SCROLL_UP 5
 # define SCROLL_DOWN 4
 # define CLICK 1
+
+// # define ESC 65307
+// # define KEY_UP 65362
+// # define KEY_DOWN 65364
+// # define KEY_LEFT 65361
+// # define KEY_RIGHT 65363
+// # define I 105
+// # define SCROLL_UP 5
+// # define SCROLL_DOWN 4
+// # define CLICK 1
 
 # include "../libft/libft.h"
 # include "../math_toolbox/includes/toolbox.h"
@@ -77,7 +77,7 @@ typedef struct			s_menger
 	double				theta;
 	double				phi;
 	t_vec3				offset;
-	t_matrix_3			m;
+	t_matrix_3			mat;
 	double				scale;
 	struct s_renderer	renderer;
 	struct s_light		light;

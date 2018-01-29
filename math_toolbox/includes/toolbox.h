@@ -88,10 +88,20 @@ float 				clamp(float x, float lowerlimit, float upperlimit);
 float				smoothstep(float edge0, float edge1, float x);
 t_vec3				mix_vec3(t_vec3 v1, t_vec3 v2, t_vec3 v3);
 float   			min(float a, float b);
+float   			max(float a, float b);
 t_vec3				cross_product(t_vec3 a, t_vec3 b);
 float				dot_product(t_vec3 a, t_vec3 b);
 t_vec2				normalize_2d(t_vec2 a);
 t_vec3				normalize_3d(t_vec3 a);
 t_vec4				normalize_4d(t_vec4 a);
+t_vec2				sub_vec2(t_vec2 a, t_vec2 b);
+t_vec3				sub_vec3(t_vec3 a, t_vec3 b);
+t_vec4				sub_vec4(t_vec4 a, t_vec4 b);
+t_vec2				add_vec2(t_vec2 a, t_vec2 b);
+t_vec3				add_vec3(t_vec3 a, t_vec3 b);
+t_vec4				add_vec4(t_vec4 a, t_vec4 b);
+t_vec2				mul_vec2(t_vec2 a, float m);
+t_vec3				mul_vec3(t_vec3 a, float m);
+t_vec4				mul_vec4(t_vec4 a, float m);
 
 #endif

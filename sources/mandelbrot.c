@@ -12,36 +12,6 @@
 
 #include "../includes/fractol.h"
 
-//  void mainImage( out vec4 fragColor, in vec2 fragCoord )
-//  {
-//      vec2 p = 1.05*(-iResolution.xy+2.0*fragCoord.xy)/iResolution.y;
-// 	 p.x -= 0.8;
-// 	 vec2 z = p;
-// 	 vec2 dz = vec2(0.7, 0.4);
-// 	 float t0 = 1e20;
-// 	 float counter = 0.0;;
-//      for(int i=0;i<128;i++){
-//          if(dot(z,z)>1024.0)break;
-//          dz=2.0*vec2(z.x*dz.x - z.y*dz.y, z.x*dz.y + z.y*dz.x);
-//          z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p;
-//          t0=min(t0, dot(dz,dz));
-//          counter++;
-//      }
-//      float d=sqrt(dot(z,z)/dot(dz,dz))*log(dot(z,z));
-// 	 z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; counter++;
-//      z=vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + p; counter++;
-// 	 float c = counter - log(log(length(z))) / log(2.0);
-// 	 d = pow(d, 0.25);
-// 	 t0 = pow(t0, 0.1);
-// 	 vec3 col0 = 0.3 + 0.5 * sin(0.45 * c + .3) * vec3(1.0);
-// 	 vec3 col1 = 0.3 + 0.7 * sin(2.4 * d) * vec3(1., 1.2, 0.8);
-// 	 vec3 col = col0 * col1 * t0;
-// 	 col=pow(col, vec3(0.55));
-//      fragColor = vec4(col.x / 10.0, col.y / 30.0, col.z, 1.0);
-//  }
-
-
-
 static float	smooth_mandelbrot(t_complex c, t_thread *t, t_vec2 p)
 {
 	float		i;

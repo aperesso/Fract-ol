@@ -52,6 +52,9 @@ SRC_NAME = 	create_matrix.c \
 			min.c\
 			rotate_matrix_3.c\
 			vector_product.c\
+			vector_sub.c\
+			vector_add.c\
+			vector_multiply.c\
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
